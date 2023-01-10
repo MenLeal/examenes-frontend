@@ -4,11 +4,24 @@
     </a>
     <span>Portal de exámenes</span>
     <span class="example-spacer"></span>
-    <a [routerLink]="'/login'" mat-icon-button class=" mr20 example-icon favorite-icon" style="font-size: 15px;">
+    <a *ngIf="!login.isLoggedIn()" [routerLink]="'/login'" mat-icon-button class=" mr20 example-icon favorite-icon"
+        style="font-size: 15px;">
         Iniciar sesión
     </a>
-    <a [routerLink]="'/signup'" mat-icon-button class="mr20 ml70" aria-label="Example icon-button with heart icon"
-        style="font-size: 15px;">
+
+    <a *ngIf="!login.isLoggedIn()" [routerLink]="'/signup'" mat-icon-button class="mr20 ml70"
+        aria-label="Example icon-button with heart icon" style="font-size: 15px;">
         Registrar
     </a>
+
+    <a *ngIf="login.isLoggedIn()" (click)="logout()" mat-icon-button class=" mr20 example-icon favorite-icon"
+        style="margin-right: 80px; font-size: 13px;">
+        Cerrar sesión
+    </a>
+
+    <button *ngIf="isLoggedIn && user" mat-button style="margin-right: 10px; margin-left: 50px;"
+        class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        {{ user.username }}
+    </button>
+
 </mat-toolbar>

@@ -11,21 +11,23 @@
                         Inicio de Sesión
                     </h1>
                     <div class="text-center" style="margin: 10px;">
-                        <form>
+                        <form (ngSubmit)="formSubmit()">
                             <mat-form-field class="example-full-width" appearance="outline">
                                 <mat-label>Nombre de Usuario</mat-label>
-                                <input matInput placeholder="Digite su nombre de usuario">
+                                <input required [(ngModel)]="loginData.username" matInput
+                                    placeholder="Digite su nombre de usuario" name="username">
                             </mat-form-field>
                             <mat-form-field class="example-full-width" appearance="outline">
                                 <mat-label>Password</mat-label>
-                                <input type="password" matInput placeholder="Digite su password">
+                                <input required [(ngModel)]="loginData.password" type="password" matInput
+                                    placeholder="Digite su password" name="password">
                             </mat-form-field>
 
                             <br><br>
 
                             <div style="padding-right: 0%;">
-                                <button type="submit" class="button-signup" mat-raised-button
-                                    color="primary">Registrar</button>
+                                <button type="submit" class="button-signup" mat-raised-button color="primary">Iniciar
+                                    Sesión</button>
                                 <button type="reset" class="button-signup" mat-raised-button
                                     color="accent">Limpiar</button>
                             </div>
